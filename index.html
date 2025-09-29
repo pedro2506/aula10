@@ -28,8 +28,8 @@
         }
 
         .meu-link:hover .arrow,
-        .dropdown:hover .arrow.
-        .menu-link:hover .arrow {
+        .dropdown:hover .arrow {
+        
          transform: rotate(0deg);
         }
         .arrow {
@@ -39,15 +39,12 @@
             display: inline-block;
         }
 
-        .arrow.up{
-            transform: rotate(180deg);
-        }
-
+    
     </style>
 
 </head>
 
-<body class="bg-gray-50 min-h-screen">
+<body class="bg-gray-200 min-h-screen">
     <header class="bg-white shadow-lg sitcky top-0 z-50">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex justify-between items-center h-16">
@@ -62,7 +59,7 @@
 
                 </div>
                 <nav class="flex space-x-8 ">
-                    <a href="#" class="menu-link text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 
+                    <a href="#" class="menu-link text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-200 
                     transition-colors duration-200">
 
             Home
@@ -71,10 +68,10 @@
             </a>
 
             <div class="dropdown relative">
-            
-            <button class="meu-link flex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm
+            <button type="button"
+            class="meu-link flex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm
                             font-medium hover:bg-blue-200 transition-colors duration-200">
-
+            </button>
                             
 
                 Serviços
@@ -86,11 +83,11 @@
                 </svg>
                      </button>
 
-                       <div class="dropdown-menu absolute right-0 mt-2 bg-white shadow rounded p-3">
+              <div class="dropdown-menu absolute left-0 mt-1  bg-white shadow-lg p-2 z-50">
               <!-- itens do dropdown -->
-              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço X</a>
-              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Y</a>
-              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Z</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço X</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço Y</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço Z</a>
             </div>
                     </div>
 

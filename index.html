@@ -1,104 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>TailwindCSSv4</title>
-    <style>
-       
-        .dropdown-menu {
-            transform: translate(-10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out;
-            pointer-events: none;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-
-        .meu-link {
-            transition: all 0.3s ease;
-        }
-
-        .meu-link:hover .arrow,
-        .dropdown:hover .arrow {
-        
-         transform: rotate(0deg);
-        }
-        .arrow {
-            transition: transform 0.3s ease;
-            transform: rotate(180deg);
-            transform-origin: center;
-            display: inline-block;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>AULA 10</title>
+  <style>
+    /* seta começa para cima */
+    .arrow {
+      transition: transform 0.3s ease;
+      transform: rotate(180deg);
+      transform-origin: center;
+      display: inline-block;
+    }
 
     
-    </style>
+    .dropdown:hover .arrow {
+      transform: rotate(0deg);
+    }
 
+   
+    .dropdown-menu {
+      transform: translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      pointer-events: none;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  </style>
 </head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+     <div class="max-w-7xl mx-auto px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex-shrink-0">
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+           hover:from-purple-600 hover:to-bliie-600 transition-all- duration-300 cursor-pointer">
+           
+           MeuSite
 
-<body class="bg-gray-200 min-h-screen">
-    <header class="bg-white shadow-lg sitcky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-                         hover:from-purple-600 hover:to-bliie-600 transition-all- duration-300 cursor-pointer ">
-            
-                                 MeuSite
-
-                    </h1>
-
-
-                </div>
-                <nav class="flex space-x-8 ">
-                    <a href="#" class="menu-link text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-200 
-                    transition-colors duration-200">
-
-            Home
-
-
-            </a>
-
-            <div class="dropdown relative">
-            <button type="button"
-            class="meu-link flex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm
-                            font-medium hover:bg-blue-200 transition-colors duration-200">
-            </button>
-                            
-
-                Serviços
-
-                <svg class="arrow ml-2 h-4 w-4 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
-
-                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-
-                </svg>
-                     </button>
-
-              <div class="dropdown-menu absolute left-0 mt-1  bg-white shadow-lg p-2 z-50">
-              <!-- itens do dropdown -->
-              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço X</a>
-              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço Y</a>
-              <a href="#" class="block px-3 py-1 hover:bg-gray-200 rounded">Serviço Z</a>
-            </div>
-                    </div>
-
-                </nav>
-
-            </div>
+        </h1>
 
         </div>
-    </header>
 
+        <nav class="flex space-x-8 items-center">
+          <!-- Home -->
+          <a href="#"
+             class="text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">            Home
+           
+            <svg class="arrow ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+            </svg>
+          </a>
+
+          <!-- Dropdown Serviços -->
+          <div class="dropdown relative">
+            <button type="button"
+                    class="menu-link flex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-200 transition-colors duration-200">
+              Serviços
+              <svg class="arrow ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+              </svg>
+            </button>
+
+            <!-- menu dropdown -->
+            <div class="dropdown-menu absolute left-0 mt-1 w-40 bg-white shadow rounded p-3">
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço X</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Y</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Z</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
 
 </body>
-
 </html>
+

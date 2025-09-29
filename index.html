@@ -9,7 +9,7 @@
     <style>
         @import 'tailwindcss/base';
         @import 'tailwindcss/components';
-        @import 'tailwindcdd/utilites';
+        @import 'tailwindcdd/utilities';
 
         .dropdown-menu {
             transform: translate(-10px);
@@ -20,7 +20,7 @@
         }
 
         .dropdown:hover .dropdown-menu {
-            transition: translateY(0);
+            transform: translateY(0);
             opacity: 1;
             visibility: visible;
             pointer-events: auto;
@@ -30,30 +30,34 @@
             transition: all 0.3s ease;
         }
 
-        .dropdown:hover .arrow {
+        .meu-link:hover .arrow,
+        .dropdown:hover .arrow.
+        .menu-link:hover .arrow{
+            transform: rotate(180deg);
+        }
+        .arrow {
+            transition: transform 0.3s ease;
+            transform-origin: center;
+            display: inline-block;
+        }
 
+        .arrow.up{
             transform: rotate(180deg);
         }
 
-        .arrow {
-            transition: transform 0.3 ease;
-        }
     </style>
 
 </head>
 
 <body class="bg-gray-50 min-h-screen">
-
     <header class="bg-white shadow-lg sitcky top-0 z-50">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <h1
-                        class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
                          hover:from-purple-600 hover:to-bliie-600 transition-all- duration-300 cursor-pointer ">
-                      
-                       
-                        MeuSite
+            
+                                 MeuSite
 
                     </h1>
 
@@ -62,21 +66,33 @@
                 <nav class="flex space-x-8 ">
                     <a href="#" class="menu-link text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 
                     transition-colors duration-200">
-                        Home
-                    </a>
 
-                    <div class="dropdown relative">
-                            <button class="meu-link"  text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 
-                    transition-colors duration-200">
+            Home
 
-                    <svg class="arrow ml-2 h-4 w-4" fill="currentcolor" viewbox="0 0 20 20">
 
-                        <path fill-rule="evenodd" d=""
-                    </svg>
-                                Serviços
-                                <svg
+            </a>
 
-                            </button>
+            <div class="dropdown relative">
+            
+            <button class="meu-linkflex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm
+                            font-medium hover:bg-blue-200 transition-colors duration-200">
+
+                            
+
+                Serviços
+
+                <svg class="arrow ml-2 h-4 w-4 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+
+                </svg>
+                     </button>
+
+                       <div class="dropdown-menu absolute right-0 mt-2 bg-white shadow rounded p-3">
+              <!-- itens do dropdown -->
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço 1</a>
+              <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço 2</a>
+            </div>
                     </div>
 
                 </nav>

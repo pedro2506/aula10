@@ -6,16 +6,15 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>AULA 10</title>
   <style>
-    
+  
     .arrow {
       transition: transform 0.3s ease;
       transform: rotate(180deg);
       transform-origin: center;
       display: inline-block;
     }
-
-    
-    .dropdown:hover .arrow {
+    .dropdown:hover .arrow,
+    .fropdown.active .arrow {
       transform: rotate(0deg);
     }
 
@@ -28,68 +27,111 @@
       transition-delay: 0.2s;
       pointer-events: none;
     }
-
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu,
+    .dropdown.active .dropdown-menu {
       transform: translateY(0);
       opacity: 1;
       visibility: visible;
       pointer-events: auto;
     }
+
+    /* Ajuste para tema escuro */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #1f2937; /* bg-gray-800 */
+      }
+      header {
+        background-color: #111827; /* bg-gray-900 */
+      }
+      nav a, .menu-link {
+        color: #d1d5db; /* text-gray-300 */
+      }
+      nav a:hover, .menu-link:hover #mobile-menu a:hover { {
+        color: #34d399; /* text-green-400 */
+        background-color: #374151; /* bg-gray-700 */
+      }
+      .dropdown-menu {
+        background-color: #1f2937; /* bg-gray-800 */
+      }
+      .dropdown-menu a:hover {
+        background-color: #374151; /* bg-gray-700 */
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-lg sticky top-0 z-50">
-     <div class="max-w-7xl mx-auto px-8">
+  <header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
         <div class="flex-shrink-0">
-          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent
-           hover:from-purple-600 hover:to-bliie-600 transition-all- duration-300 cursor-pointer">
-           
-           MeuSite
-
-        </h1>
-
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300 cursor-pointer">
+            MeuSite
+          </h1>
         </div>
 
-        <nav class="flex space-x-8 items-center">
-          <a href="#"
-             class="text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">            Home
-           
-            <svg class="arrow ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+        <div class="sm:hidden">
+          <button id="menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
-          </a>
+          </button>
+        </div>
 
-          
-          <div class="relative group dropdown">
-            <button type="button"
-                    class="menu-link flex items-center gap-1 text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-200 transition-colors duration-200">
-             
-                    Serviços
-              <svg class="arrow ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+        <!-- Menu (desktop) -->
+        <nav id="menu" class="hidden sm:flex items-center space-x-4">
+          <a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">Home</a>
+
+          <!-- Serviços Dropdown -->
+          <div class="relative dropdown">
+            <button type="button" class="menu-link flex items-center gap-1 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">
+              Serviços
+              <svg class="arrow ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/>
               </svg>
             </button>
-
-         
             <div class="dropdown-menu absolute left-0 mt-1 w-40 bg-white shadow rounded p-3">
               <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço X</a>
               <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Y</a>
               <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Z</a>
             </div>
-
-             <a href="#" class="text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200"></a>
-             <a href="#" class="text-gray-700 hover:text-green-700 px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200"></a>
-
-
           </div>
+
+          <a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">Sobre</a>
+          <a href="#" class="px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors duration-200">Contato</a>
         </nav>
       </div>
     </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobile-menu" class="sm:hidden hidden px-4 pt-2 pb-4 space-y-2">
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50">Home</a>
+      <div class="relative dropdown">
+        <button type="button" class="w-full text-left flex justify-between items-center px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50">
+          Serviços
+          <svg class="arrow ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu mt-1 w-full bg-white shadow rounded p-3">
+          <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço X</a>
+          <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Y</a>
+          <a href="#" class="block px-3 py-1 hover:bg-gray-100 rounded">Serviço Z</a>
+        </div>
+      </div>
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50">Sobre</a>
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-50">Contato</a>
+    </div>
   </header>
 
+  <script>
+    // Toggle menu mobile
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
-

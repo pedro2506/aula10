@@ -125,13 +125,13 @@
           
           <!-- Dropdown Serviços -->
   <div class="relative">
-    <button id="servicos-btn" type="button" class="w-full text-left flex justify-between items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
+    <button id="servicos-btn" type="button" class="w-full flex justify-between items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
       Serviços
       <span class="ml-2">▼</span>
     </button>
 
     <!-- Submenu oculto por padrão -->
-    <div id="submenu-servicos" class="hidden mt-2 space-y-2">
+    <div id="submenu-servicos" class="hidden mt-2 space-y-2 pl-4">
       <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 1</a>
       <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 2</a>
       <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 3</a>
@@ -152,6 +152,21 @@
       </div>
       <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800  hover:bg-blue-600">Sobre</a>
       <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800  hover:bg-blue-600">Contato</a>
+   
+   
+   <!-- Sobre -->
+  <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
+    Sobre
+  </a>
+
+  <!-- Contato -->
+  <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
+    Contato
+  </a>
+</div>
+   
+   
+   
     </div>
   </header>
 
@@ -167,6 +182,7 @@
     // Toggle submenu Serviços
   const servicosBtn = document.getElementById('servicos-btn');
   const submenu = document.getElementById('submenu-servicos');
+  const arrow = document.getElementById('servicos-arrow');
 
   servicosBtn.addEventListener('click', () => {
     submenu.classList.toggle('hidden');

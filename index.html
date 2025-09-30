@@ -123,6 +123,21 @@
       <div class="relative dropdown">
         <button type="button" class="w-full text-left flex justify-between items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
           
+          <!-- Dropdown Serviços -->
+  <div class="relative">
+    <button id="servicos-btn" type="button" class="w-full text-left flex justify-between items-center px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-800 hover:bg-blue-600">
+      Serviços
+      <span class="ml-2">▼</span>
+    </button>
+
+    <!-- Submenu oculto por padrão -->
+    <div id="submenu-servicos" class="hidden mt-2 space-y-2">
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 1</a>
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 2</a>
+      <a href="#" class="block px-4 py-2 rounded-md text-sm font-medium text-white bg-blue-700 hover:bg-blue-500">Serviço 3</a>
+    </div>
+  </div>
+
           Serviços
 
           <svg class="arrow ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -148,6 +163,13 @@
     btn.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
+
+    // Toggle submenu Serviços
+  const servicosBtn = document.getElementById('servicos-btn');
+  const submenu = document.getElementById('submenu-servicos');
+
+  servicosBtn.addEventListener('click', () => {
+    submenu.classList.toggle('hidden');
   </script>
 </body>
 </html>

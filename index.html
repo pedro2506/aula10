@@ -2,72 +2,66 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <title>Menu Único</title>
+  <title>aula10</title>
   <style>
-    /* animação fade + slide */
-    .fade-slide-enter {
-      opacity: 0;
-      transform: translateY(-10px);
+    .arrow {
+      transition: transform 0.3s ease;
+      display: inline-block;
     }
-    .fade-slide-enter-active {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 0.3s ease;
+    .rotate {
+      transform: rotate(180deg);
     }
-    .fade-slide-exit {
-      opacity: 1;
-      transform: translateY(0);
+    .dropdown-menu {
+      display: none;
     }
-    .fade-slide-exit-active {
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s ease;
+    .dropdown.active .dropdown-menu {
+      display: block;
     }
   </style>
 </head>
 <body class="bg-blue-100 min-h-screen">
-
   <header class="bg-blue-100 shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="flex justify-between items-center h-16">
         
         <!-- Logo -->
-        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          MeuSite
-        </h1>
+        <div class="flex-shrink-0">
+          <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer">MeuSite</h1>
+        </div>
 
         <!-- Botão Mobile -->
-        <button id="menu-btn" class="sm:hidden text-gray-700 focus:outline-none">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+        <div class="sm:hidden">
+          <button id="menu-btn" class="text-gray-700 hover:text-green-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
 
-        <!-- Menu -->
-        <nav id="menu" class="hidden sm:flex flex-col sm:flex-row sm:space-x-4 absolute sm:static top-16 left-0 w-full sm:w-auto bg-blue-100 sm:bg-transparent shadow sm:shadow-none">
-          <a href="#" class="px-4 py-2 text-white bg-blue-800 hover:bg-blue-600 rounded">Home</a>
+        <!-- Menu Único -->
+        <nav id="menu" class="hidden sm:flex sm:items-center sm:space-x-4 flex-col sm:flex-row sm:static absolute left-0 right-0 top-16 bg-blue-100 sm:bg-transparent sm:top-auto sm:w-auto p-4 sm:p-0">
+          
+          <a href="#" class="px-4 py-2 rounded-md text-white bg-blue-800 hover:bg-blue-600">Home</a>
 
-          <!-- Dropdown Serviços -->
-          <div class="relative group">
-            <button id="servicos-btn" class="w-full sm:w-auto flex justify-between items-center px-4 py-2 text-white bg-blue-800 hover:bg-blue-600 rounded">
+          <!-- Serviços Dropdown -->
+          <div class="relative dropdown sm:static w-full sm:w-auto">
+            <button id="dropdown-btn" type="button" class="flex justify-between items-center w-full sm:w-auto gap-1 px-4 py-2 rounded-md text-white bg-blue-800 hover:bg-blue-600">
               Serviços
-              <svg id="arrow" class="ml-2 w-4 h-4 transform transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+              <svg id="arrow" class="arrow ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/>
               </svg>
             </button>
-
-            <!-- Submenu -->
-            <div id="submenu" class="hidden sm:absolute sm:left-0 sm:mt-2 bg-blue-800 rounded shadow p-2 space-y-2">
-              <a href="#" class="block px-3 py-1 text-white hover:bg-blue-600 rounded">Serviço X</a>
-              <a href="#" class="block px-3 py-1 text-white hover:bg-blue-600 rounded">Serviço Y</a>
-              <a href="#" class="block px-3 py-1 text-white hover:bg-blue-600 rounded">Serviço Z</a>
+            <div class="dropdown-menu bg-blue-800 rounded mt-1 sm:absolute sm:left-0 sm:w-40 w-full text-white shadow">
+              <a href="#" class="block px-3 py-1 hover:bg-blue-600">Serviço X</a>
+              <a href="#" class="block px-3 py-1 hover:bg-blue-600">Serviço Y</a>
+              <a href="#" class="block px-3 py-1 hover:bg-blue-600">Serviço Z</a>
             </div>
           </div>
 
-          <a href="#" class="px-4 py-2 text-white bg-blue-800 hover:bg-blue-600 rounded">Sobre</a>
-          <a href="#" class="px-4 py-2 text-white bg-blue-800 hover:bg-blue-600 rounded">Contato</a>
+          <a href="#" class="px-4 py-2 rounded-md text-white bg-blue-800 hover:bg-blue-600">Sobre</a>
+          <a href="#" class="px-4 py-2 rounded-md text-white bg-blue-800 hover:bg-blue-600">Contato</a>
         </nav>
       </div>
     </div>
@@ -76,40 +70,20 @@
   <script>
     const btn = document.getElementById('menu-btn');
     const menu = document.getElementById('menu');
-    const servicosBtn = document.getElementById('servicos-btn');
-    const submenu = document.getElementById('submenu');
+    const dropdownBtn = document.getElementById('dropdown-btn');
+    const dropdown = dropdownBtn.parentElement;
     const arrow = document.getElementById('arrow');
-
-    // Função para animar entrada/saída
-    function toggleFade(el) {
-      if (el.classList.contains('hidden')) {
-        el.classList.remove('hidden');
-        el.classList.add('fade-slide-enter');
-        requestAnimationFrame(() => {
-          el.classList.add('fade-slide-enter-active');
-          el.classList.remove('fade-slide-enter');
-        });
-      } else {
-        el.classList.add('fade-slide-exit');
-        el.classList.add('fade-slide-exit-active');
-        el.classList.remove('fade-slide-enter-active');
-        el.addEventListener('transitionend', () => {
-          el.classList.add('hidden');
-          el.classList.remove('fade-slide-exit', 'fade-slide-exit-active');
-        }, { once: true });
-      }
-    }
 
     // Toggle menu mobile
     btn.addEventListener('click', () => {
-      toggleFade(menu);
+      menu.classList.toggle('hidden');
     });
 
-    // Toggle submenu
-    servicosBtn.addEventListener('click', (e) => {
+    // Toggle dropdown
+    dropdownBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      toggleFade(submenu);
-      arrow.classList.toggle('rotate-180');
+      dropdown.classList.toggle('active');
+      arrow.classList.toggle('rotate');
     });
   </script>
 </body>
